@@ -3,6 +3,7 @@ package ru.vadimoclock.repository
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.CrudRepository
 import ru.vadimoclock.entity.CountryEntity
+import ru.vadimoclock.model.NameOnly
 
 interface CountryRepository: CrudRepository<CountryEntity, Int> {
 
@@ -10,5 +11,5 @@ interface CountryRepository: CrudRepository<CountryEntity, Int> {
 
     fun findByNameStartingWithIgnoreCaseOrderByName(prefix: String): List<CountryEntity>
 
-    fun findAllByOrderByName(): List<CountryEntity>
+    fun findAllByOrderByName(): List<NameOnly>
 }
