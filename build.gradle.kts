@@ -21,6 +21,14 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
+	implementation("org.springdoc:springdoc-openapi-starter-common:2.0.4")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
+
+	implementation("org.springframework.boot:spring-boot-starter-validation:3.0.4")
+	implementation("org.springframework.boot:spring-boot-starter-actuator:3.0.4")
+
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
