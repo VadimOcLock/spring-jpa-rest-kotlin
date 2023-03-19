@@ -68,6 +68,9 @@ class CountryServiceImpl(
         countryRepository.deleteById(existingCountry.id)
     }
 
+    override fun getCountryNames(): List<String> =
+        countryRepository.findAllByOrderByName().map { it.name }
+
     private fun CountryEntity.toDto(): CountryDto =
         CountryDto(
             id = this.id,
