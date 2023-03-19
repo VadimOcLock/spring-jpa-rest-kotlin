@@ -59,10 +59,12 @@ class CountryServiceImpl(
         cityRepository.saveAll(cities)
     }
 
+    @Transactional
     override fun delete(id: Int) {
         val existingCountry = countryRepository.findByIdOrNull(id)
             ?: throw CountryNotFoundException(id)
 
+        cityRepository.deleteAllByCountry(existingCountry)
         countryRepository.deleteById(existingCountry.id)
     }
 
