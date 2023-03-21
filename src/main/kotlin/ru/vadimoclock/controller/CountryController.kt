@@ -43,6 +43,10 @@ class CountryController(
     fun getCountryNames(): List<String> =
         countryService.getCountryNames()
 
+    @GetMapping("/count")
+    fun getCountOfCountries(): Int =
+        countryService.getCountOfCountries()
+
     @PostMapping
     @Operation(summary = "Create new country")
     fun create(@RequestBody dto: CountryDto): Int =

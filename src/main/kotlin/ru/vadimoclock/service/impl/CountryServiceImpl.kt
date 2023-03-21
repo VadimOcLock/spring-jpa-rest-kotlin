@@ -71,6 +71,10 @@ class CountryServiceImpl(
     override fun getCountryNames(): List<String> =
         countryRepository.findAllByOrderByName().map { it.name }
 
+    override fun getCountOfCountries(): Int =
+        countryRepository.getCountOfCountries()
+
+
     private fun CountryEntity.toDto(): CountryDto =
         CountryDto(
             id = this.id,

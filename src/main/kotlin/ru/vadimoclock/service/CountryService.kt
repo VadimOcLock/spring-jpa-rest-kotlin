@@ -17,4 +17,6 @@ interface CountryService {
     fun update(id: Int, dto: CountryDto)
 
     fun delete(id: Int)
+
+    fun getCountOfCountries(): Int
 }
