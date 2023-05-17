@@ -31,6 +31,12 @@ dependencies {
 
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
+	implementation("org.bouncycastle:bcprov-jdk15on:1.70")
+	// https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
+	implementation("org.bouncycastle:bcpkix-jdk15on:1.70")
+
 }
 
 tasks.withType<KotlinCompile> {
