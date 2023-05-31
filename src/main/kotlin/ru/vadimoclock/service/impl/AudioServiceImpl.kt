@@ -2,10 +2,13 @@ package ru.vadimoclock.service.impl
 
 import org.springframework.stereotype.Service
 import ru.vadimoclock.dto.*
+import ru.vadimoclock.model.CutRequestModel
 import ru.vadimoclock.responses.FileResponse
 import ru.vadimoclock.service.AudioService
+import ru.vadimoclock.utils.AudioUtils
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.io.SequenceInputStream
 import javax.sound.sampled.*
 import javax.sound.sampled.AudioSystem
@@ -15,29 +18,11 @@ import javax.sound.sampled.FloatControl
 @Service
 class AudioServiceImpl : AudioService {
 
-    override fun cutFile(dto: CutFileDto): FileResponse {
+    override fun cutFile(dto: CutRequestModel): File {
 
-        val inputStream = ByteArrayInputStream(dto.file!!.bytes)
-        val inputAudioFormat = AudioSystem.getAudioFileFormat(inputStream).format
-        val inputAudioStream = AudioSystem.getAudioInputStream(inputStream)
+        val file = AudioUtils.cutWav(dto.file.bytes.inputStream(), dto.timings.start, dto.timings.end)
 
-        val timeObject = getTimeValue(dto)
-
-        val startFrame = (timeObject.first * inputAudioFormat.frameRate).toLong()
-        val endFrame = (timeObject.second * inputAudioFormat.frameRate).toLong()
-        val outputAudioFormat = AudioFormat(inputAudioFormat.encoding, inputAudioFormat.sampleRate,
-                inputAudioFormat.sampleSizeInBits, inputAudioFormat.channels, inputAudioFormat.frameSize,
-                inputAudioFormat.frameRate, inputAudioFormat.isBigEndian)
-        val outputAudioStream = AudioInputStream(inputAudioStream, outputAudioFormat, endFrame - startFrame)
-
-        inputAudioStream.close()
-        outputAudioStream.close()
-
-        return FileResponse(
-                inputAudioStream.readAllBytes(),
-                201,
-                "Success cut file"
-        )
+        return file
     }
 
     override fun editVolumeFile(dto: VolumeEditFileDto): FileResponse {
@@ -118,12 +103,5 @@ class AudioServiceImpl : AudioService {
 //
 //        return mixer
 //    }
-
-
-    private fun getTimeValue(dto: CutFileDto): Pair<Double, Double> {
-
-        //todo: parsing
-        return Pair(0.0, 0.0)
-    }
 
 }

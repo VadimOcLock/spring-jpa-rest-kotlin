@@ -4,6 +4,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/example_db
     username: example_user
     password: "1234"
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
   jpa:
     properties:
       hibernate:

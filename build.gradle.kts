@@ -6,11 +6,16 @@ plugins {
 	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.7.22"
 	kotlin("plugin.jpa") version "1.7.22"
+	application
 }
 
 group = "ru.vadimoclock"
 version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
+
+application {
+	mainClass.set("ru.vadimoclock.SpringJpaRestKotlinApplication")
+}
 
 repositories {
 	mavenCentral()
@@ -28,8 +33,9 @@ dependencies {
 
 	implementation("org.springframework.boot:spring-boot-starter-validation:3.0.4")
 	implementation("org.springframework.boot:spring-boot-starter-actuator:3.0.4")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
-	runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	// https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
@@ -44,6 +50,16 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
 	}
+}
+
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "ru.vadimoclock.SpringJpaRestKotlinApplication"
+	}
+	configurations["compileClasspath"].forEach { file: File ->
+		from(zipTree(file.absoluteFile))
+	}
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 tasks.withType<Test> {

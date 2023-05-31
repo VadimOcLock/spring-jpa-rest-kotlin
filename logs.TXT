@@ -1,0 +1,58 @@
+Starting Gradle Daemon...
+Gradle Daemon started in 4 s 925 ms
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :inspectClassesForKotlinIC UP-TO-DATE
+
+> Task :SpringJpaRestKotlinApplicationKt.main()
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2023-05-31T15:31:56.426+03:00  INFO 4276 --- [           main] r.v.SpringJpaRestKotlinApplicationKt     : Starting SpringJpaRestKotlinApplicationKt using Java 19.0.2 with PID 4276 (C:\Users\Vadim\IdeaProjects\spring-jpa-rest-kotlin\build\classes\kotlin\main started by Vadim in C:\Users\Vadim\IdeaProjects\spring-jpa-rest-kotlin)
+2023-05-31T15:31:56.430+03:00  INFO 4276 --- [           main] r.v.SpringJpaRestKotlinApplicationKt     : No active profile set, falling back to 1 default profile: "default"
+2023-05-31T15:31:58.217+03:00  INFO 4276 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-31T15:31:58.293+03:00  INFO 4276 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces.
+2023-05-31T15:31:58.988+03:00  INFO 4276 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-31T15:31:59.002+03:00  INFO 4276 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-31T15:31:59.003+03:00  INFO 4276 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-31T15:31:59.102+03:00  INFO 4276 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-31T15:31:59.104+03:00  INFO 4276 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2618 ms
+2023-05-31T15:31:59.411+03:00  INFO 4276 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-31T15:31:59.677+03:00  INFO 4276 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@baa9ce4
+2023-05-31T15:31:59.679+03:00  INFO 4276 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-31T15:31:59.737+03:00  INFO 4276 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-31T15:31:59.827+03:00  INFO 4276 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-31T15:32:00.301+03:00  INFO 4276 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-31T15:32:01.223+03:00  INFO 4276 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-31T15:32:01.240+03:00  INFO 4276 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-31T15:32:02.004+03:00  WARN 4276 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-31T15:32:03.256+03:00  INFO 4276 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-05-31T15:32:03.369+03:00  INFO 4276 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-31T15:32:03.388+03:00  INFO 4276 --- [           main] r.v.SpringJpaRestKotlinApplicationKt     : Started SpringJpaRestKotlinApplicationKt in 7.724 seconds (process running for 10.975)
+
+> Task :SpringJpaRestKotlinApplicationKt.main() FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':SpringJpaRestKotlinApplicationKt.main()'.
+> Build cancelled while executing task ':SpringJpaRestKotlinApplicationKt.main()'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 34s
+5 actionable tasks: 1 executed, 4 up-to-date
